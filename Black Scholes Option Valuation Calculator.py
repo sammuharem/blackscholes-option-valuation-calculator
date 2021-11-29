@@ -3,6 +3,24 @@ import math
 import scipy.stats as st
 
 def blackScholes(s, x, t, r, v, divType = '', dividends = {}, prnt = True):
+    """
+    Function that values options using the Black-Scholes model
+    ----------
+    s : The current spot price of the underlying asset
+    x : The strike price of the option contract
+    t : The time to maturity of the option contract
+    r : The risk-free rate over the life of the option
+    v : The volatility of the underlying assets price
+    
+    Optional:
+    divType : '' for no dividends (default), 'D' for discrete, 'C' for continuous
+    dividends : {amount1: time1, amount2: time2} for discrete dividends, percentage for continuous dividend yield
+    prnt : True to print option price to console (default), False to disable
+    
+    Returns
+    -------
+    Call Price, Put Price
+    """
     #Discrete Dividends and No Dividends
     if divType in ['D', '']:
         d = 0
